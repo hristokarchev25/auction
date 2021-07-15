@@ -20,7 +20,7 @@ function Register() {
                     <h5>Repeat Password</h5>
                     <input type="password" />
 
-                    <button className="register__registerBtn">Sign In</button>
+                    <button className="register__registerBtn">Create your account</button>
                 </form>
 
                 <p>
