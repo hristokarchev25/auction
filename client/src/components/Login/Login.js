@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react'
 import "./Login.css"
 function Login() {
@@ -20,8 +21,15 @@ function Login() {
                 <p>
                     By continuing, you agree to Auction System's Conditions of Use and Privacy Notice.
                 </p>
+                
+                <p>
+                    New to Auction System? Create an account!
+                </p>
+                
+                <Link to="/register">
+                    <button className="login__registerBtn">Create Account</button>
+                </Link>
 
-                <button className="login__registerBtn">Create Account</button>
             </div>
         </div>
     )
