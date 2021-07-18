@@ -8,7 +8,7 @@ import Register from './components/Register/Register';
 import Create from './components/Create/Create';
 import BidHistory from './components/BidHistory/BidHistory';
 import Error from './components/Error/Error';
-/* import ErrorTwo from './components/ErrorTwo/ErrorTwo'; */
+
 
 function App() {
   return (
