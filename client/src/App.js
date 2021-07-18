@@ -1,4 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import './App.css';
 import Header from './components/Header/Header';
@@ -8,21 +9,36 @@ import Register from './components/Register/Register';
 import Create from './components/Create/Create';
 import BidHistory from './components/BidHistory/BidHistory';
 import Error from './components/Error/Error';
+import LoadingScreen from './components/LoadingScreen/LoadingScreen';
 
 
 function App() {
+  const [Loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(true), 2000);
+  }, []);
+
   return (
-    <div className="app">
-      <Header />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/create" component={Create}/>
-        <Route path="/bidsHistory" component={BidHistory}/>
-        <Route component={Error} />
-      </Switch>
-    </div>
+    <>
+      {Loading === true ?
+        (
+          <div className="app">
+            <Header />
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
+              <Route path="/create" component={Create} />
+              <Route path="/bidsHistory" component={BidHistory} />
+              <Route component={Error} />
+            </Switch>
+          </div>
+        ) : (
+          <LoadingScreen />
+        )}
+    </>
+
   );
 }
 
