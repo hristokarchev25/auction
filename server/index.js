@@ -2,14 +2,14 @@ const express = require("express");
 const app = express();
 
 const mongoose = require("mongoose");
-const connection_url = 'mongodb+srv://admin:SbiWUjPPBYoNqo7C@realmcluster.2crnj.mongodb.net/systemdb?retryWrites=true&w=majority';
+const db_url = require("./config/db");
 
 /* 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser"); */
 
 //db
-mongoose.connect(connection_url, {
+mongoose.connect(db_url.connection_url, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
