@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import './Create.css'
+import './Create.css';
+import axios from '../../axios';
 function Create({
     history
 }) {
@@ -14,12 +15,24 @@ function Create({
         e.preventDefault();
         const isValid = validateForm();
         if (isValid) {
-            const name = e.target.name.value;
+            const data = {
+                name: e.target.name.value,
+                description: e.target.description.value,
+                price: e.target.price.value,
+                imageUrl: e.target.imageUrl.value
+            }
+            /* const name =
             const description = e.target.description.value;
             const price = e.target.price.value;
-            const imageUrl = e.target.imageUrl.value;
+            const imageUrl = e.target.imageUrl.value; */
 
-            console.log(name, description, price, imageUrl);
+            /* console.log(name, description, price, imageUrl); */
+            axios.post("/product/card", data)
+                .then((res) => {
+                    console.log(res);
+                    history.push('/');
+                })
+                .catch(err => console.log(err));
         }
     }
 
@@ -67,7 +80,7 @@ function Create({
                     <h5>Image</h5>
                     <input type="text" value={imageUrl} onChange={(e) => { setImageUrl(e.target.value) }} name="imageUrl" />
 
-                    {Object.keys(errors).map((key)=> {
+                    {Object.keys(errors).map((key) => {
                         return <div className="error__container">{errors[key]}</div>
                     })}
 
