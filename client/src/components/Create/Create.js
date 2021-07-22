@@ -8,18 +8,46 @@ function Create({
     const [price, setPrice] = useState("");
     const [imageUrl, setImageUrl] = useState("");
 
+    const [errors, setErrors] = useState({});
 
     const createProduct = (e) => {
         e.preventDefault();
+        const isValid = validateForm();
+        if (isValid) {
+            const name = e.target.name.value;
+            const description = e.target.description.value;
+            const price = e.target.price.value;
+            const imageUrl = e.target.imageUrl.value;
 
-        const name = e.target.name.value;
-        const description = e.target.description.value;
-        const price = e.target.price.value;
-        const imageUrl = e.target.imageUrl.value;
-
-        console.log(name, description, price, imageUrl);
+            console.log(name, description, price, imageUrl);
+        }
     }
 
+    const validateForm = () => {
+        const errors = {};
+
+        let isValid = true;
+
+        if (!name.trim()) {
+            errors.rec = "Name of product is  required";
+            isValid = false;
+        }
+        if (!description.trim()) {
+            errors.recart = "Description is required";
+            isValid = false;
+        }
+        if (!price.trim()) {
+            errors.recLyr = "Price is  required";
+            isValid = false;
+        }
+        if (!imageUrl.trim()) {
+            errors.recImg = "Image is required";
+            isValid = false;
+        }
+
+        setErrors(errors);
+        return isValid;
+    }
 
     return (
         <div className="create">
@@ -31,13 +59,17 @@ function Create({
                     <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} name="name" />
 
                     <h5>Description</h5>
-                    <input type="textarea" value={description} onChange={(e) => { setDescription(e.target.value) }} name="description"/>
+                    <input type="textarea" value={description} onChange={(e) => { setDescription(e.target.value) }} name="description" />
 
                     <h5>Price</h5>
                     <input type="text" value={price} onChange={(e) => { setPrice(e.target.value) }} name="price" />
 
                     <h5>Image</h5>
                     <input type="text" value={imageUrl} onChange={(e) => { setImageUrl(e.target.value) }} name="imageUrl" />
+
+                    {Object.keys(errors).map((key)=> {
+                        return <div className="error__container">{errors[key]}</div>
+                    })}
 
                     <button className="create__btn">Create product</button>
                 </form>

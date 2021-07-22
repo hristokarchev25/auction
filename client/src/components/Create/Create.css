@@ -48,3 +48,8 @@
     border-color: #a88734 #9c7e31 #846a29;
     cursor: pointer;
 }
+
+.error__container {
+    color: red;
+    text-align: center;
+}
