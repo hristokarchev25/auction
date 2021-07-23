@@ -10,7 +10,7 @@ import Create from './components/Create/Create';
 import BidHistory from './components/BidHistory/BidHistory';
 import Error from './components/Error/Error';
 import LoadingScreen from './components/LoadingScreen/LoadingScreen';
-
+import Details from './components/DetailsPage/Details';
 
 function App() {
   const [Loading, setLoading] = useState(false);
@@ -31,6 +31,7 @@ function App() {
               <Route path="/register" component={Register} />
               <Route path="/create" component={Create} />
               <Route path="/bidsHistory" component={BidHistory} />
+              <Route path="/details/product/:productId" component={Details} />
               <Route component={Error} />
             </Switch>
           </div>

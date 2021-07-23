@@ -1,6 +1,8 @@
-import React from 'react'
-import "./Product.css"
-function Product({id, title, image, price}) {
+import React from 'react';
+import "./Product.css";
+import { Link } from 'react-router-dom';
+
+function Product({ id, title, image, price }) {
     return (
         <div className="product">
             <div className="product__info">
@@ -12,8 +14,9 @@ function Product({id, title, image, price}) {
             </div>
             <img src={image} alt="product" />
             <button>Add a Bid</button>
+            <Link to={`/details/product/${id}`}><button>Details</button></Link>
         </div>
-    )
+    );
 }
 
-export default Product
+export default Product;
