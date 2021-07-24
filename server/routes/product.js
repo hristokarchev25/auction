@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Product } = require('../models/Product');
 
-router.route('/all').get((req, res) => {
+router.get('/all', (req, res) => {
 
     Product.find((err, data) => {
         if (err) {
@@ -13,7 +13,7 @@ router.route('/all').get((req, res) => {
 
 });
 
-router.route('/add').post((req, res) => {
+router.post('/add', (req, res) => {
     const productCard = req.body;
 
     Product.create(productCard, (err, data) => {
@@ -25,7 +25,7 @@ router.route('/add').post((req, res) => {
     })
 });
 
-router.route('/:id').get((req, res) => {
+router.get('/:id', (req, res) => {
     Product.findById(req.params.id)
         .then(prod => res.json(prod))
         .catch(err => res.status(400).json(err));
