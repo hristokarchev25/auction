@@ -3,8 +3,29 @@ import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
 import GavelIcon from '@material-ui/icons/Gavel';
 import { Link } from 'react-router-dom';
+import axios from '../../axios';
+import { useSelector } from 'react-redux';
 
-function Header() {
+
+function Header({
+    history
+}) {
+    const user = useSelector((state) => state.user);
+    
+    const logoutHandler = () => {
+        axios.get("/users/logout")
+            .then((res) => {
+                if (res.status === 200) {
+                    history.push("/login");
+                } else {
+                    alert("Log Out Failed");
+                }
+            });
+    };
+
+
+
+
     return (
         <div className="header">
             <Link to="/">
@@ -43,4 +64,4 @@ function Header() {
     )
 }
 
-export default Header
+export default Header;
