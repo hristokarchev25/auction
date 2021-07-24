@@ -6,12 +6,12 @@ const db_url = require("./config/db");
 
 const cors = require("cors");
 
-const { Product } = require("./models/Product");
-/* 
-const bodyParser = require("body-parser");
+
+/* const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser"); */
 app.use(express.json());
 app.use(cors());
+
 //db
 mongoose.connect(db_url.connection_url, {
     useNewUrlParser: true,
@@ -22,33 +22,7 @@ mongoose.connect(db_url.connection_url, {
     .catch((err) => console.log(err));
 
 //api endpoints
-app.get("/", (req, res) => res.status(200).send("Hello!!"));
-
-app.post("/product/card", (req, res) => {
-    const productCard = req.body;
-
-    Product.create(productCard, (err, data) => {
-        if (err) {
-            res.status(500).send(err)
-        } else {
-            res.status(201).send(data)
-        }
-    })
-
-});
-
-app.get("/product/card", (req, res) => {
-
-    Product.find((err, data) => {
-        if (err) {
-            res.status(500).send(err)
-        } else {
-            res.status(200).send(data)
-        }
-    })
-
-});
-
+app.use("/product", require('./routes/product'));
 
 //listener
 const port = process.env.PORT || 5000;

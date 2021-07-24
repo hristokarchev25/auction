@@ -8,7 +8,7 @@ function Home() {
 
     useEffect(() => {
         async function fetchData() {
-            const req = await axios.get("/product/card");
+            const req = await axios.get("/product/all");
 
             setProducts(req.data);
         }

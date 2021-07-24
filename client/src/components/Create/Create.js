@@ -27,7 +27,7 @@ function Create({
             const imageUrl = e.target.imageUrl.value; */
 
             /* console.log(name, description, price, imageUrl); */
-            axios.post("/product/card", data)
+            axios.post("/product/add", data)
                 .then((res) => {
                     console.log(res);
                     history.push('/');
