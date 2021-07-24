@@ -64,16 +64,16 @@ function Create({
 
                 <form onSubmit={createProduct}>
                     <h5>Name of product</h5>
-                    <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} name="name" />
+                    <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} name="name" placeholder="At least 5 characters!" />
 
                     <h5>Description</h5>
-                    <input type="textarea" value={description} onChange={(e) => { setDescription(e.target.value) }} name="description" />
+                    <input type="textarea" value={description} onChange={(e) => { setDescription(e.target.value) }} name="description" placeholder="At least 5 characters!"/>
 
                     <h5>Price</h5>
-                    <input type="text" value={price} onChange={(e) => { setPrice(e.target.value) }} name="price" />
+                    <input type="text" value={price} onChange={(e) => { setPrice(e.target.value) }} name="price" placeholder="Must be a number"/>
 
                     <h5>Image</h5>
-                    <input type="text" value={imageUrl} onChange={(e) => { setImageUrl(e.target.value) }} name="imageUrl" />
+                    <input type="text" value={imageUrl} onChange={(e) => { setImageUrl(e.target.value) }} name="imageUrl" placeholder="Must start with http..." />
 
                     {Object.keys(errors).map((key) => {
                         return <div className="error__container">{errors[key]}</div>

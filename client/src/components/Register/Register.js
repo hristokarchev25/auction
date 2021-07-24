@@ -54,16 +54,16 @@ function Register({
 
                 <form onSubmit={createUser} >
                     <h5>Username</h5>
-                    <input type="text" value={username} onChange={(e) => { setUsername(e.target.value) }} name="username" placeholder="Min. 5 symbols!" />
+                    <input type="text" value={username} onChange={(e) => { setUsername(e.target.value) }} name="username" placeholder="At least 5 characters!" />
 
                     <h5>E-mail</h5>
-                    <input type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} name="email" placeholder="Must be in aaa@aaa.aaa format" />
+                    <input type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} name="email" placeholder="Must be in aaa@aaa.aaa format!" />
 
                     <h5>Password</h5>
-                    <input type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} name="password" placeholder="Min. 5 symbols!" />
+                    <input type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} name="password" placeholder="At least 5 characters!" />
 
                     <h5>Repeat Password</h5>
-                    <input type="password" value={rePassword} onChange={(e) => { setRePassword(e.target.value) }} name="rePassword" placeholder="Must be same as password" />
+                    <input type="password" value={rePassword} onChange={(e) => { setRePassword(e.target.value) }} name="rePassword" placeholder="Must be same as password!" />
 
                     <button className="register__registerBtn">Create your account</button>
                 </form>

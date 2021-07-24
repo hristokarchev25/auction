@@ -5,11 +5,13 @@ const productSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
+        minlength: 5,
         maxlength: 25,
     },
     description: {
         type: String,
         required: true,
+        minlength: 5,
         maxlength: 250,
     },
     price: {
