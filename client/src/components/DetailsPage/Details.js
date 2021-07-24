@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from '../../axios';
 import "./Details.css";
 
@@ -22,6 +23,7 @@ function Details({ match }) {
                 <div className="product__details">
                     <div className="details__info">
                         <p>{details.name}</p>
+                        <p>{details.description}</p>
                         <p className="details__price">
                             <small>$</small>
                             <strong>{details.price}</strong>
@@ -31,7 +33,7 @@ function Details({ match }) {
                     <img src={details.imageUrl} alt="product" />
 
                     <button>Add a Bid</button>
-
+                    <Link to="/"><button className="link__btn">Back</button></Link>
                 </div>
 
             </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import './Create.css';
 import axios from '../../axios';
 function Create({
@@ -20,13 +20,8 @@ function Create({
                 description: e.target.description.value,
                 price: e.target.price.value,
                 imageUrl: e.target.imageUrl.value
-            }
-            /* const name =
-            const description = e.target.description.value;
-            const price = e.target.price.value;
-            const imageUrl = e.target.imageUrl.value; */
+            };
 
-            /* console.log(name, description, price, imageUrl); */
             axios.post("/product/add", data)
                 .then((res) => {
                     console.log(res);
@@ -92,4 +87,4 @@ function Create({
     )
 }
 
-export default Create
+export default Create;

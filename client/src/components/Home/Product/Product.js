@@ -14,7 +14,7 @@ function Product({ id, title, image, price }) {
             </div>
             <img src={image} alt="product" />
             <button>Add a Bid</button>
-            <Link to={`/details/product/${id}`}><button>Details</button></Link>
+            <Link to={`/details/product/${id}`}><button className="link__btn">Details</button></Link>
         </div>
     );
 }
