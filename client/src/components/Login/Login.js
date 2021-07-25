@@ -22,6 +22,7 @@ function Login({
             .then((res)=>{
                 if (res.payload.loginSuccess) {
                     window.localStorage.setItem("userId", res.payload.userId);
+                    console.log(res);
                     history.push("/");
                   } else {
                     console.log("Unable to proceed, please check your Account and Password again");

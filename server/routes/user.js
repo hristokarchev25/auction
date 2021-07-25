@@ -7,7 +7,6 @@ router.get("/auth", auth, (req, res) => {
     res.status(200).json({
         name: req.user.name,
         email: req.user.email,
-        lastName: req.user.lastName,
         _id: req.user._id,
         isAuth: true,
     });
