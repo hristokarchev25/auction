@@ -46,7 +46,7 @@ function Header(props) {
 
                     <Link to="/about">
                         <div className="header__option">
-                            <span className='header__optionLineOne'>Our mission? You can read more in:</span>
+                            <span className='header__optionLineOne'>Contact us?</span>
                             <span className='header__optionLineTwo'>About us</span>
                         </div>
                     </Link>

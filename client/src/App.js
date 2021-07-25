@@ -12,6 +12,7 @@ import BidHistory from './components/BidHistory/BidHistory';
 import Error from './components/Error/Error';
 import LoadingScreen from './components/LoadingScreen/LoadingScreen';
 import Details from './components/DetailsPage/Details';
+import About from './components/About/About';
 
 function App() {
   const [Loading, setLoading] = useState(false);
@@ -31,6 +32,7 @@ function App() {
               <Route path="/login" component={Auth(Login, false)} />
               <Route path="/register" component={Auth(Register, false)} />
               <Route path="/create" component={Auth(Create, true)} />
+              <Route path="/about" component={Auth(About, false)} />
               <Route path="/bidsHistory" component={Auth(BidHistory, true)} />
               <Route path="/details/product/:productId" component={Auth(Details, null)} />
               <Route component={Error} />
