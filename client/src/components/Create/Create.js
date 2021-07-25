@@ -29,7 +29,7 @@ function Create({
                 })
                 .catch(err => console.log(err));
         }
-    }
+    };
 
     const validateForm = () => {
         const errors = {};
@@ -41,11 +41,11 @@ function Create({
             isValid = false;
         }
         if (!description.trim()) {
-            errors.recart = "Description is required";
+            errors.recDes = "Description is required";
             isValid = false;
         }
         if (!price.trim()) {
-            errors.recLyr = "Price is  required";
+            errors.recPr = "Price is  required";
             isValid = false;
         }
         if (!imageUrl.trim()) {
@@ -55,7 +55,7 @@ function Create({
 
         setErrors(errors);
         return isValid;
-    }
+    };
 
     return (
         <div className="create">

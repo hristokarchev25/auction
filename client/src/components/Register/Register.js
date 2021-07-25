@@ -8,9 +8,9 @@ import { useDispatch } from "react-redux";
 function Register({
     history
 }) {
-    //
+
     const dispatch = useDispatch();
-    //const [errors, setErrors] = useState("");
+    const [errors, setErrors] = useState("");
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -18,35 +18,55 @@ function Register({
 
     const createUser = (e) => {
         e.preventDefault();
-        let dataToSubmit = {
-            name: e.target.username.value,
-            email: e.target.email.value,
-            password: e.target.password.value
-        };
+        const isValid = validateForm();
+        if (isValid) {
+            let dataToSubmit = {
+                name: e.target.username.value,
+                email: e.target.email.value,
+                password: e.target.password.value
+            };
 
-        dispatch(registerUser(dataToSubmit))
-            .then((res) => {
-                if (res.payload.success) {
-                    console.log(res);
-                    history.push("/login");
-                } else {
-                   /*  setErrors("Email is already in use, please choose a different Email Address");
-                    setTimeout(() => {
-                        setErrors("");
-                    }, 5000); */
-                    console.log("Email is already in use, please choose a different Email Address");
-                }
-            })
-            .catch((err) => {
-               /*  setErrors("Please check your Input Fields and Password again");
-                setTimeout(() => {
-                    setErrors("");
-                }, 3000); */
-                console.log(err);
-            });
+            dispatch(registerUser(dataToSubmit))
+                .then((res) => {
+                    if (res.payload.success) {
+                        console.log(res);
+                        history.push("/login");
+                    } else {
+                        console.log("Email is already in use, please choose a different Email Address");
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+    };
 
-    }
-    ///
+    const validateForm = () => {
+        const errors = {};
+
+        let isValid = true;
+
+        if (!username.trim()) {
+            errors.rec = "Username is  required";
+            isValid = false;
+        }
+        if (!email.trim()) {
+            errors.recEmail = "Email is required";
+            isValid = false;
+        }
+        if (!password.trim()) {
+            errors.recPw = "Password is  required";
+            isValid = false;
+        }
+        if (!rePassword.trim()) {
+            errors.recRp = "Confirm password is required";
+            isValid = false;
+        }
+
+        setErrors(errors);
+        return isValid;
+    };
+
     return (
         <div className="register">
             <div className="register__container">
@@ -64,6 +84,10 @@ function Register({
 
                     <h5>Repeat Password</h5>
                     <input type="password" value={rePassword} onChange={(e) => { setRePassword(e.target.value) }} name="rePassword" placeholder="Must be same as password!" />
+
+                    {Object.keys(errors).map((key) => {
+                        return <div className="error__container">{errors[key]}</div>
+                    })}
 
                     <button className="register__registerBtn">Create your account</button>
                 </form>
