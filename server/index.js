@@ -22,7 +22,15 @@ app.use(body_Parser.urlencoded({ extended: true }));
 app.use(body_Parser.json());
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+
+
+let corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true
+}
+
+app.use(cors(corsOptions));
+
 
 //api endpoints
 app.use("/product", require('./routes/product'));

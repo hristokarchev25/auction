@@ -77,6 +77,7 @@ router.get("/logout", auth, (req, res) => {
         }
   
         return res
+        .clearCookie("x_auth")
         .status(200)
         .send({
           success: true,

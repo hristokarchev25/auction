@@ -3,21 +3,23 @@ import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
 import GavelIcon from '@material-ui/icons/Gavel';
 import { Link } from 'react-router-dom';
-import axios from '../../axios';
 import { useSelector } from 'react-redux';
+import { logoutUser } from "../_actions/user_actions";
+import { useDispatch } from "react-redux";
 
-
-function Header(props) {
+function Header({ history }) {
     const user = useSelector((state) => state.user);
+    const dispatch = useDispatch();
 
     const logoutHandler = () => {
-        axios.get("/users/logout")
+        dispatch(logoutUser())
             .then((res) => {
                 if (res.status === 200) {
-                    props.history.push("/login");
-                } else {
+                    //history.push("/");
+                    console.log("logged out");
+                } /* else {
                     alert("Log Out Failed");
-                }
+                } */
             });
     };
 
@@ -67,12 +69,12 @@ function Header(props) {
 
 
                 <div className="header__nav">
-
-                    <div className="header__option">
-                        <span className='header__optionLineOne'>Hello, {user.userData ? user.userData.name : ""}</span>
-                        <Link to="/" onClick={logoutHandler}>   <span className='header__optionLineTwo'>Logout</span></Link>
-                    </div>
-
+                    <Link to="/login" onClick={logoutHandler}>
+                        <div className="header__option">
+                            <span className='header__optionLineOne'>Hello, {user.userData ? user.userData.name : ""}</span>
+                            <span className='header__optionLineTwo'>Logout</span>
+                        </div>
+                    </Link>
 
                     <Link to="/create">
                         <div className="header__option">
