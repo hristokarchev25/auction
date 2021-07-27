@@ -66,3 +66,11 @@
     margin-right: 10px;
     color: white;
 }
+
+.header__optionAccount {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
 import GavelIcon from '@material-ui/icons/Gavel';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { logoutUser } from "../_actions/user_actions";
@@ -87,6 +88,12 @@ function Header({ history }) {
                         <div className="header__optionHammer">
                             <GavelIcon />
                             <span className='header__optionLineTwo header__hammerCount'>0</span>
+                        </div>
+                    </Link>
+
+                    <Link to="/profile">
+                        <div className="header__optionAccount">
+                            <AccountCircleIcon/>
                         </div>
                     </Link>
 
