@@ -63,4 +63,10 @@
 }
 .about__container > p {
     margin-top: 8px;
+    color: black;
+}
+
+.profile__h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

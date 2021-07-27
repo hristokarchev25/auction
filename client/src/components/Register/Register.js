@@ -15,6 +15,9 @@ function Register({
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [rePassword, setRePassword] = useState("");
+    const [fullName, setFullName] = useState("");
+    const [address, setAddress] = useState("");
+    const [avatar, setAvatar] = useState("");
 
     const createUser = (e) => {
         e.preventDefault();
@@ -23,7 +26,10 @@ function Register({
             let dataToSubmit = {
                 name: e.target.username.value,
                 email: e.target.email.value,
-                password: e.target.password.value
+                password: e.target.password.value,
+                fullName: e.target.fullName.value,
+                address: e.target.address.value,
+                avatar: e.target.avatar.value
             };
 
             dispatch(registerUser(dataToSubmit))
@@ -62,11 +68,23 @@ function Register({
             errors.recRp = "Confirm password is required";
             isValid = false;
         }
+        if (!fullName.trim()) {
+            errors.recFn = "Full name is required";
+            isValid = false;
+        }
+        if (!address.trim()) {
+            errors.recAd = "Address is required";
+            isValid = false;
+        }
+        if (!avatar.trim()) {
+            errors.recRp = "Profile picture (avatar) is required";
+            isValid = false;
+        }
 
         setErrors(errors);
         return isValid;
     };
-
+    //todo: create + validate
     return (
         <div className="register">
             <div className="register__container">
@@ -84,6 +102,15 @@ function Register({
 
                     <h5>Repeat Password</h5>
                     <input type="password" value={rePassword} onChange={(e) => { setRePassword(e.target.value) }} name="rePassword" placeholder="Must be same as password!" />
+
+                    <h5>Full name</h5>
+                    <input type="text" value={fullName} onChange={(e) => { setFullName(e.target.value) }} name="fullName" placeholder="First & Last name!" />
+
+                    <h5>Address</h5>
+                    <input type="text" value={address} onChange={(e) => { setAddress(e.target.value) }} name="address" placeholder="City, street, etc." />
+
+                    <h5>Avatar</h5>
+                    <input type="text" value={avatar} onChange={(e) => { setAvatar(e.target.value) }} name="avatar" placeholder="Must start with http..." />
 
                     {Object.keys(errors).map((key) => {
                         return <div className="error__container">{errors[key]}</div>

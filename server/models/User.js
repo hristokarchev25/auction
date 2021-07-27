@@ -18,6 +18,19 @@ const userSchema = mongoose.Schema({
         type: String,
         minlength: 5,
     },
+    fullName: {
+        type: String,
+        minlength: 1,
+    },
+    address: {
+        type: String,
+        minlength: 5,
+        maxlength: 100,
+    },
+    avatar: {
+        type: String,
+        validate: /^https?/,
+    },
     token: {
         type: String,
     }

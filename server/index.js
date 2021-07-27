@@ -12,7 +12,8 @@ const body_Parser = require("body-parser");
 mongoose.connect(db_url.connection_url, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 })
     .then(() => console.log("MongoDB is successfully connected!"))
     .catch((err) => console.log(err));
