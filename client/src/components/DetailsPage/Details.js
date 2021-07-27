@@ -18,26 +18,28 @@ function Details({ match }) {
     }, [id]);
 
     return (
-        <div className="details">
-            <div className="details__row">
-                <div className="product__details">
-                    <div className="details__info">
-                        <p>{details.name}</p>
-                        <p>{details.description}</p>
-                        <p className="details__price">
-                            <small>$</small>
-                            <strong>{details.price}</strong>
-                        </p>
+        <div className="home">
+            <div className="home__container">
+                <img className="home__image" src="/home.jpg" alt="home" />
+
+                <div className="home__row" >
+                    <div className="product">
+                        <div className="product__info">
+                            <p>{details.name}</p>
+                            <p>{details.description}</p>
+                            <p className="product__price">
+                                <small>$</small>
+                                <strong>{details.price}</strong>
+                            </p>
+                        </div>
+                        <img src={details.imageUrl} alt="product" />
+                        <button>Add a Bid</button>
+                        <Link to="/"><button className="link__btn">Back</button></Link>
                     </div>
-
-                    <img src={details.imageUrl} alt="product" />
-
-                    <button>Add a Bid</button>
-                    <Link to="/"><button className="link__btn">Back</button></Link>
                 </div>
-
             </div>
         </div>
+
     )
 }
 
