@@ -36,7 +36,7 @@ app.use(cors(corsOptions));
 //api endpoints
 app.use("/product", require('./routes/product'));
 app.use("/users", require('./routes/user'));
-
+app.use("/comments", require('./routes/comments'));
 
 //listener
 const port = process.env.PORT || 5000;
