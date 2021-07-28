@@ -31,4 +31,16 @@ router.get('/:id', (req, res) => {
         .catch(err => res.status(400).json(err));
 });
 
+router.post('/update/:id', (req, res) => {
+    Product.findById(req.params.id)
+        .then(prod => {
+            prod.price = req.body.price;
+
+            prod.save()
+                .then(() => res.json(prod))
+                .catch(err => res.status(400).json(err));
+        })
+        .catch(err => res.status(400).json(err));
+});
+
 module.exports = router;

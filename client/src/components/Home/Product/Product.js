@@ -8,6 +8,7 @@ function Product({ id, title, image, price, rating }) {
             <div className="product__info">
                 <p>{title}</p>
                 <p className="product__price">
+                    <p>Current price:</p>
                     <small>$</small>
                     <strong>{price}</strong>
                 </p>
@@ -20,7 +21,6 @@ function Product({ id, title, image, price, rating }) {
                 </div>
             </div>
             <img src={image} alt="product" />
-            <button>Add a Bid</button>
             <Link to={`/details/product/${id}`}><button className="link__btn">Details</button></Link>
         </div>
     );

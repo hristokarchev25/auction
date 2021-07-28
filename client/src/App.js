@@ -36,7 +36,7 @@ function App() {
               <Route path="/profile" component={Auth(Profile, true)} />
               <Route path="/about" component={Auth(About, false)} />
               <Route path="/bidsHistory" component={Auth(BidHistory, true)} />
-              <Route path="/details/product/:productId" component={Auth(Details, null)} />
+              <Route path="/details/product/:productId" component={Auth(Details, true)} />
               <Route component={Error} />
             </Switch>
           </div>
