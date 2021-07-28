@@ -8,7 +8,6 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Auth from "./hoc/auth";
 import Create from './components/Create/Create';
-import BidHistory from './components/BidHistory/BidHistory';
 import Error from './components/Error/Error';
 import LoadingScreen from './components/LoadingScreen/LoadingScreen';
 import Details from './components/DetailsPage/Details';
@@ -34,8 +33,7 @@ function App() {
               <Route path="/register" component={Auth(Register, false)} />
               <Route path="/create" component={Auth(Create, true)} />
               <Route path="/profile" component={Auth(Profile, true)} />
-              <Route path="/about" component={Auth(About, false)} />
-              <Route path="/bidsHistory" component={Auth(BidHistory, true)} />
+              <Route path="/about" component={Auth(About, false)} />   
               <Route path="/details/product/:productId" component={Auth(Details, true)} />
               <Route component={Error} />
             </Switch>

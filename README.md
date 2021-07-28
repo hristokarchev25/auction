@@ -19,6 +19,19 @@ Backend: NodeJS, ExpressJS;
 
 Database: MongoDB;
 
+##  List Of All Featured Functionalities
+Registration/ Logging In/ Logging Out;
+
+View About Page in navigation Menu/ information about the creator;
+
+View products data at the Home page;
+
+After creating an account you can:
+- View selected products Details;
+- Bid for them;
+- Create products for the auction;
+- Visit the personal account page;
+
 ---
 
 ## License & copyright
