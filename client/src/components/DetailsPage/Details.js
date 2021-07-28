@@ -26,7 +26,8 @@ function Details({ match }) {
                     <div className="product">
                         <div className="product__info">
                             <p>{details.name}</p>
-                            <p>{details.description}</p>
+                            <p className="details__description">{details.description}</p>
+                            <p className="details__date">Active until: {details.date}</p>
                             <p className="product__price">
                                 <small>$</small>
                                 <strong>{details.price}</strong>

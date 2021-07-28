@@ -32,6 +32,14 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true,
         validate: /^https?/,
+    },
+    date: {
+        type: String,
+        required: true
+    },
+    rating: {
+        type: Number,
+        maxlength: 1
     }
 });
 

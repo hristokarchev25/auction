@@ -10,6 +10,9 @@ function Create({
     const [imageUrl, setImageUrl] = useState("");
     const [imageUrlTwo, setImageUrlTwo] = useState("");
     const [imageUrlThree, setImageUrlThree] = useState("");
+    const [date, setDate] = useState("");
+    const [rating, setRating] = useState("");
+
 
     const [errors, setErrors] = useState({});
 
@@ -23,7 +26,9 @@ function Create({
                 price: e.target.price.value,
                 imageUrl: e.target.imageUrl.value,
                 imageUrlTwo: e.target.imageUrlTwo.value,
-                imageUrlThree: e.target.imageUrlThree.value
+                imageUrlThree: e.target.imageUrlThree.value,
+                date: e.target.date.value,
+                rating: e.target.rating.value,
             };
 
             axios.post("/product/add", data)
@@ -64,6 +69,14 @@ function Create({
             errors.recImgThree = "Image is required";
             isValid = false;
         }
+        if (!date.trim()) {
+            errors.recDate = "Date is required";
+            isValid = false;
+        }
+        if (!rating.trim()) {
+            errors.recR = "Rating is required";
+            isValid = false;
+        }
 
         setErrors(errors);
         return isValid;
@@ -92,6 +105,12 @@ function Create({
 
                     <h5>Third image</h5>
                     <input type="text" value={imageUrlThree} onChange={(e) => { setImageUrlThree(e.target.value) }} name="imageUrlThree" placeholder="Must start with http..." />
+
+                    <h5>Set Date</h5>
+                    <input type="date" value={date} onChange={(e) => { setDate(e.target.value) }} name="date" placeholder="Active status date." />
+
+                    <h5>Set Rating for the product</h5>
+                    <input type="text" value={rating} onChange={(e) => { setRating(e.target.value) }} name="rating" placeholder="Must be number between 1-5!" />
 
                     {Object.keys(errors).map((key) => {
                         return <div className="error__container">{errors[key]}</div>

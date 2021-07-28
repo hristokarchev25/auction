@@ -1,4 +1,4 @@
-.link__btn{
+.link__btn {
     background: #f0c14b;
     border: 1px solid;
     margin-top: 10px;
@@ -14,4 +14,15 @@
     margin-bottom: 15px;
     display: flex;
     flex-direction: row;
+}
+
+.details__date {
+    margin-top: 5px;
+    font-weight: bolder;
+    color: green;
+}
+
+.details__description {
+    margin-top: 5px;
+    font-weight: bold;
 }

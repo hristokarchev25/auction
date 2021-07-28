@@ -22,7 +22,7 @@ function Home() {
                 <img className="home__image" src="/home.jpg" alt="home" />
                 <div className="home__row" >
                     {products.map((product) => (
-                        <Product key={product._id} id={product._id} title={product.name} price={product.price} image={product.imageUrl} />
+                        <Product key={product._id} id={product._id} title={product.name} price={product.price} image={product.imageUrl} rating={product.rating} />
                     ))}
                 </div>
             </div>

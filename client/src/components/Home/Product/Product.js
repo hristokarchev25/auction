@@ -2,7 +2,7 @@ import React from 'react';
 import "./Product.css";
 import { Link } from 'react-router-dom';
 
-function Product({ id, title, image, price }) {
+function Product({ id, title, image, price, rating }) {
     return (
         <div className="product">
             <div className="product__info">
@@ -11,6 +11,13 @@ function Product({ id, title, image, price }) {
                     <small>$</small>
                     <strong>{price}</strong>
                 </p>
+                <div className="product__rating">
+                    {Array(rating)
+                        .fill()
+                        .map((_, i) => (
+                            <p>⭐</p>
+                        ))}
+                </div>
             </div>
             <img src={image} alt="product" />
             <button>Add a Bid</button>

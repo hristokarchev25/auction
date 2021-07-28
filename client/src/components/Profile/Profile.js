@@ -16,9 +16,9 @@ function Profile() {
                         <img src={user.userData.avatar} alt="profile avatar" />
                         <div className="about__container">
                             <h2 className="profile__h2">{user.userData.fullName}</h2>
-                            <p className="about__title">{user.userData.name}</p>
-                            <p>{user.userData.address}</p>
-                            <p>{user.userData.email}</p>
+                            <p className="about__title">Username: {user.userData.name}</p>
+                            <p>Address: {user.userData.address}</p>
+                            <p>Email: {user.userData.email}</p>
                            
 
                         </div>
