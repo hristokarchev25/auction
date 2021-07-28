@@ -6,3 +6,12 @@
     color: #111;
     cursor: pointer;
 }
+
+.details__img {
+    max-height: 200px;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+}

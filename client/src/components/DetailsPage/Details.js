@@ -33,9 +33,22 @@ function Details({ match }) {
                             </p>
                         </div>
                         <img src={details.imageUrl} alt="product" />
+
                         <button>Add a Bid</button>
                         <Link to="/"><button className="link__btn">Back</button></Link>
                     </div>
+
+                    <div className="product">
+                        <div className="product__info">
+                            <p>More photos</p>
+                        </div>
+                        <img className="details__img" src={details.imageUrlTwo} alt="product" />
+                    </div>
+
+                    <div className="product">
+                        <img className="details__img" src={details.imageUrlThree} alt="product" />
+                    </div>
+
                 </div>
             </div>
         </div>

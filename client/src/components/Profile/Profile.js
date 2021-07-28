@@ -8,7 +8,7 @@ function Profile() {
     return (
         <div className="profile">
 
-            <h2 className="about__team">Your Profile</h2>
+            <h2 className="about__team">My Account</h2>
 
             <div className="about__row">
                 <div className="profile__column">
